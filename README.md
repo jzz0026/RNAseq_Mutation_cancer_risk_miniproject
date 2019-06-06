@@ -30,6 +30,7 @@ As we known, a clinician uses a combination of **cancer stage, grade**, **overal
 <p align="center">
    <img src="Plot/corr_stag_grade_vital_survival.png" alt="alternate text" width="1500"> 
 </p>
+      
 No significantly strong corralation (spearman) of overall survival in months was observed against cancer stage and grade (converted to danger level, 0 to 4), which reflected a high variance in clinical population. So here we try to use Unsupervised clustering, Kmeans and Expectation Maximization (EM), to combine these four features together. 
 
 <p align="center">
