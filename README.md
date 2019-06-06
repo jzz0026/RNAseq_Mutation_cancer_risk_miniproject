@@ -55,3 +55,5 @@ EM algorithm is an iterative method to fit Gaussian mixture models for each clus
    <img src="Plot/mean_stag_grade_vital_survival_in_class.png" alt="alternate text" width="1500"> 
 </p>
 <br /> 
+
+Both Figure 2 and Table 2 showed that 2 risk level gave a **good balance** on four features. The high risk tended to have higher danger level of stage and grade, live shorter after diagnosis and contain more individuals that was already dead than the low risk. 
