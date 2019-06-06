@@ -35,7 +35,7 @@ It is the mission of Convergent Genomics to bring clear and actionable insight t
   Figure 1. PCA visualization of mRNA expression before and after removing outlier using Isolation Forest
 </div>
 <p align="center">
-   <img src="Plot/pca_isolationForest.png" alt="alternate text" width="800"> 
+   <img src="Plot/pca_isolationForest.png" alt="alternate text" width="1500"> 
 </p>
 
 3. check whether there is any pattern existed in mRNA expression in order to remove redundant genes. However, no any obvious pattern was observed (Figur 2).
@@ -43,7 +43,7 @@ It is the mission of Convergent Genomics to bring clear and actionable insight t
   Figure 2. Heatmap of mRNA expression
 </div>
 <p align="center">
-   <img src="Plot/heatmap.png" alt="alternate text" width="1500"> 
+   <img src="Plot/heatmap.png" alt="alternate text" width="500"> 
 </p>
 ## Unsupervised clustering for categories of risks
 
