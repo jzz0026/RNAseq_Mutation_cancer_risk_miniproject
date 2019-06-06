@@ -125,7 +125,7 @@ PCA was appied to reduce features. The PC1 had 98.4% variance explained but no o
 <br />
 
 #### Select features with strong Correlations
-The features with top 20 of both highest and lowest correlations against risk (0/1) were selected for modeling. Correlation was used since I started with three categories clustered as risk (high, medium, low). But right now we have only two classes, so that hypothesis testing could also be applied.
+The features with top 20 of both highest and lowest correlations against risk (0/1) were selected for modeling. Correlation was used since I started with three categories clustered as risk (high, medium, low). But right now we have only two classes (high and low), so that hypothesis testing could also be applied.
 
 ### Evaluation
 As I expected, PCA dimensionality reduction didn't work well. All algorithms applied to top 10 components only generate models with low accuracies close to baseline (only choose the most frequent class, Table 3). The best model was built based on the top correlation selection and Random Forest Classifier with an accuracy of 0.78 and roc-auc of 0.80 (Table 3). The obtained accuracy is 16% better than baseline, demonstrating a good performance.
@@ -147,7 +147,7 @@ As I expected, PCA dimensionality reduction didn't work well. All algorithms app
    |Top correlation + Neural network|0.66|0.58|0.72|
    |Top correlation + Random Forest Classifier|0.78|0.68|0.80|
 
-
+Figure 7 showed ROC curves from top models using different approaches of feature selection. It was noticed that corr + random forest have a better performance (high True positive rate) on both low and high False positive rate (1 - specificity). In cancer diagnosis, we want to avoid false negative but can bear some false positive. In this case, L1 norm + random forest can also be acceptable if bearing about 0.5 of False positive rate.
 
 <div align="center">
   Figure 7. ROC curves of the test set for different built models
