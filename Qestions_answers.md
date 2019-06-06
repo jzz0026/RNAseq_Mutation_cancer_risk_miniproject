@@ -6,7 +6,13 @@ b. Since mRNA expression, mutation sequencing and clinical data would be combine
 c. Some outliers could be potential errors during sequencing or sampling. The high variability in clinical population could also cause outliers and affect the performance of models. Here Isolation Forest was applied to drop outliers since it was based on random forest and can handle large, high-dimensional datasets. PCA was then used for visualization of this filtering step. About 10.11% observations were filtered and PCA showed a more acceptable variance than before filtering.
 
 ## 2. Generally speaking, what are potential sources of ambiguity arising from your approach?
-It could be from lack of environmental data. As we know, phenotype = clinical data + transcriptome + genotype + environmental data. The environmental data could include information of individuals’ diets, life styles, habits and so on, which would have potential affect on causation of cancers.  This could be the biggest sources of ambiguity in our approach. 
+a. In unsupervised clustering, we assumed each of four features was equally to indicate risk due to limited domain knowledge. However, the four features didn’t correlated closely. Many individuals could have a high cancer grade but low stage and live fairly long after diagnosis, vice versa. They could contribute to risk differently, so it might be worth to changing weight to achieve a better balance of four features for unsupervised clustering. This step is fairly critical since it generate labels for downstream modeling and might a major source of ambiguity.
+
+b. Clinical and sequencing data of human population could be distinct from individual to individual. The sample size we had right now could still be small, could lead to the problem of high variance. Despite the step of feature selection was applied, it could still be lack of enough information from individuals to indicate disease-associated risk, causing the ambiguity in our approach.
+
+
+c. It could be from lack of environmental data. As we know, phenotype = clinical data + transcriptome + genotype + environmental data. The environmental data could include information of individuals’ diets, life styles, habits and so on, which would have potential affect on causation of cancers.  This could be a big source of ambiguity in our approach. 
+
 
 ## 3. What other data might we collect to enhance risk quantification? What quantitative proof do you have?
 If we do whole genome sequencing, whole transcriptome and collected more samples of patients, I think it will be greatly helpful to enhance risk quantification.
