@@ -115,7 +115,7 @@ c=0.1 was chose for modeling since it provided the highest accuracy. The built m
 <br />
 
 #### PCA to reduce features
-
+PCA was appied to reduce features. The PC1 had 98.4% variance explained but no obvious seperation can be observed from the two dimensions. The performance of this dimensionality reduction was skeptical。
 <div align="center">
   Figure 6. PCA dimensionality reduction and visualization
 </div>
@@ -123,3 +123,9 @@ c=0.1 was chose for modeling since it provided the highest accuracy. The built m
    <img src="Plot/pca_select.png" alt="alternate text" width="500"> 
 </p>
 <br />
+
+#### Select features with strong Correlations
+The features with top 20 of both highest and lowest correlations against risk (0/1) were selected for modeling. Correlation was used since I started with three categories clustered as risk (high, medium, low). But right now we have only two classes, so that hypothesis testing could also be applied.
+
+### Evaluation
+
