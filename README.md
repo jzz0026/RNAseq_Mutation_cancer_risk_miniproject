@@ -17,13 +17,13 @@ It is the mission of Convergent Genomics to bring clear and actionable insight t
       4. Gradient boosting
       5. Neural network
 
-## Clean data and deal with missing data
-### Clinical data
+## 1. Clean data and deal with missing data
+### 1.1 Clinical data
 1. Convert some features with two categories to binary (e.g. Profiled in Mutations, Patient's Vital Status, Informed consent verified)
 2. Remove data with nan in Grade and Vital Status, since they are key feature to build risk as label
 3. Convert cancer stage and grade (categeories) into integers indcating danger level, from 0 to 4, avoiding to generate too many dimensions and making data too sparse.
 
-### RNA-Seq data
+### 1.2 RNA-Seq data
 1. Remove features with full of nan data.
 2. Remove **outliers** from observations (e.g. overexpressing) that could greatly affect model performance. **Isolation Forest** was appied to drop outliers since it was based on randomn forest and can handle large, high-dimensional datasets. **PCA** was then used for visualization of this filtering step. About 10.11% observations were filtered and PCA showed a more acceptable variance than before filtering (Figure 1).
 
@@ -46,7 +46,7 @@ It is the mission of Convergent Genomics to bring clear and actionable insight t
    <img src="Plot/heatmap.png" alt="alternate text" width="500"> 
 </p>
 
-### Mutation data
+### 1.3 Mutation data
 1. Remove features with full of nan data.
 2. Convert mutation annotation (categories) into **penalty score** based on the **BLOSUM62** matrix (Figure 3), avoiding to too many dimensions and making data too sparse. Mutations causing stop codon and splicing were set as -20 and -10, respectively.
 <div align="center">
@@ -56,7 +56,7 @@ It is the mission of Convergent Genomics to bring clear and actionable insight t
    <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/BLOSUM62.png" alt="alternate text" width="500"> 
 </p>
 
-## Unsupervised clustering for categories of risks
+## 2. Unsupervised clustering for categories of risks
 
 As we known, a clinician uses a combination of **cancer stage, grade**, **overall survival in months following diagnosis**, and **vital status (alive/dead)** to establish risk. Since this risk was not provided, we should also look into these features and try to build risk as the label for modeling. Intuitively, both doctor and patients care about length of the remaining life most, so **overall survival in months** should be the most **indicative** to build risk desipte **68% of individuals are still alive** and could cause bias if only using overall survival as risk. Cancer stage and grade are also very meaningful to represent danger and risk, but could be incomplete and cause misleading if used alone. Many individuals could have a high cancer grade but low stage and live fairly long after diagnosis, vice versa (Fig 3).
 
@@ -97,12 +97,12 @@ EM algorithm is an iterative method to fit Gaussian mixture models for each clus
 
 Both Figure 4 and Table 2 showed that 2 risk level gave a **good balance** on four features. The high risk tended to have higher danger level of stage and grade, live shorter after diagnosis and contain more individuals that was already dead than the low risk. 
 
-## Modeling for prediction of risk
-### Merge clinical, RNAseq and mutation data
+## 3. Modeling for prediction of risk
+### 3.1 Merge clinical, RNAseq and mutation data
 Three types of data were merged in order to predict risk using more data, resulting in total 432 observations (n) and 134 features (p). Only intersection part was kept and rest of them were dropped of because they are lack of data and even labels. 
 Based on rule of thumb, we should have at least 10 times bigger number of observations than number of features (n >= 10p). So we faced a problem of high dimensionalities, which could lead to high variance in modeling. Considering human clinical data always have an higher variance than the usual, the situation could be even worse and we probably need to select features to reduce dimensionalities and variance.
 
-### Feature selection
+### 3.2 Feature selection
 #### L1 normalization to select features
 c=0.1 was chose for modeling since it provided the highest accuracy. The built model gave the weight of zero to 71% features, greatly reducing dimensionalities (Figure 5). 
 
@@ -127,7 +127,7 @@ PCA was appied to reduce features. The PC1 had 98.4% variance explained but no o
 #### Select features with strong Correlations
 The features with top 20 of both highest and lowest correlations against risk (0/1) were selected for modeling. Correlation was used since I started with three categories clustered as risk (high, medium, low). But right now we have only two classes (high and low), so that hypothesis testing could also be applied.
 
-### Evaluation
+### 3.3 Evaluation
 As I expected, PCA dimensionality reduction didn't work well. All algorithms applied to top 10 components only generate models with low accuracies close to baseline (only choose the most frequent class, Table 3). The best model was built based on the top correlation selection and Random Forest Classifier with an accuracy of 0.78 and roc-auc of 0.80 (Table 3). The obtained accuracy is 16% better than baseline, demonstrating a good performance.
 
 
