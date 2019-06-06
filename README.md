@@ -29,9 +29,8 @@ As we known, a clinician uses a combination of **cancer stage, grade**, **overal
 </p>
 
 <div align="center">
-  Table 1. Correlation matrix ofcancer stage, grade, overall survival and vital status
+  Table 1. Correlation matrix of cancer stage, grade, overall survival and vital status
 </div>
-
 <p align="center">
    <img src="Plot/corr_stag_grade_vital_survival.png" alt="alternate text" width="1500"> 
 </p>
@@ -48,3 +47,11 @@ No significantly strong corralation (spearman) of overall survival in months was
 <br />
 
 EM algorithm is an iterative method to fit Gaussian mixture models for each clusters based on an optiaml co-variance matrix. The optiaml co-variance matrix can automatically give different weight for each features. However, Kmeans can also manually set weight through proportionally enlarging values in each feature. However, here we assume **each of four features was equally to indicat risk** due to limited domain knowledge. **Kmeans with 2 components** was finally appied for clustering, leading to **two clusters** of high and low risk (187 and 340 observations, respectively, Figure 2). 3 components were also tried but result in a pretty bad prediction performance after modeling, which was probablly caused by high variance in human and limited sample size. So I decided to use 2 components to achieve a larger degree of freedom. 
+
+<div align="center">
+  Table 2. Mean danger level of cancer stage, grade, overall survival and vital status
+</div>
+<p align="center">
+   <img src="Plot/mean_stag_grade_vital_survival_in_class.png" alt="alternate text" width="1500"> 
+</p>
+<br /> 
