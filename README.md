@@ -10,7 +10,6 @@ It is the mission of Convergent Genomics to bring clear and actionable insight t
 - Clean and QA/QC of clinical, mRNA and mutation data as well as fill in missing data.
 - Train the model to predict risk using clinical, mRNA and mutation data
 
-
 ## Learning methods for classification
       1. Logistic regression
       2. SVM 
@@ -20,6 +19,11 @@ It is the mission of Convergent Genomics to bring clear and actionable insight t
 
 ## Unsupervised clustering for categories of risks
 
+As we known, a clinician uses a combination of cancer stage, grade, overall survival in months following diagnosis, and vital status (alive/dead) to establish risk. Since this risk was not provided, we should also look into these features and try to build risk as the label for modeling. Intuitively, both doctor and patients care about length of the remaining life most, so overall survival in months should be the most indicative to build risk desipte 68% of individuals are still alive and could cause bias if only using overall survival as risk. Cancer stage and grade are also very meaningful to represent danger and risk, but could be incomplete and cause misleading if used alone. Many individuals could have a high cancer grade but low stage and live fairly long after diagnosis, vice versa.
+
 <p align="center">
    <img src="Plot/plot_stag_grade_vital_survival.png" alt="alternate text" width="1500"> 
 </p>
+
+
+
