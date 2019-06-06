@@ -109,7 +109,7 @@ Based on rule of thumb, we should have at least 10 times bigger number of observ
   Figure 5. Differenct C against accuracy using Logistic regression of L1 normalization
 </div>
 <p align="center">
-   <img src="Plot/L1_select.png" alt="alternate text" width="1500"> 
+   <img src="Plot/L1_select.png" alt="alternate text" width="500"> 
 </p>
 <br />
 
