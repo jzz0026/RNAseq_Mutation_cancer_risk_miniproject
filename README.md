@@ -18,3 +18,8 @@ It is the mission of Convergent Genomics to bring clear and actionable insight t
       4. Gradient boosting
       5. Neural network
 
+## Unsupervised clustering for categories of risks
+
+<p align="center">
+   <img src="Plot/plot_stag_grade_vital_survival.png" alt="alternate text" width="1500"> 
+</p>
