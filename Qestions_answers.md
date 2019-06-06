@@ -27,5 +27,12 @@ Here the random forest was used to train the dataset, achieving an 0.36, 0.5, 0.
 
 
 ## 5.	How would you communicate your findings to a clinician?
-The model we built had a good performance on Disease-associated risk. The model was trained based on genome, transcription and clinical data, which was directly derived from urine and noninvasive. The prediction result could be an additional support for doctors’ diagnose. Despite prediction score is not perfect, we have confidence to achieve a better performance if we can collect more patience data. The more data (both examples and useful features) will help to find similarities and differences within and between classes.  So we are looking forwards to more opportunities to collaborate with you!
+Clinic, transcription and mutation data were combined together in order to utilize more information for modeling. The samples were directly derived from urine and noninvasive, followed by measurement and sequencing. So patients will have no pain and low cost for cancer detection. The modeling process included cleaning, filling missing data, feature selection, apply multiple machine learning algorithms and evaluate their performance. The step of feature selection is important since high dimensionalities will cause over-fitting for many algorithms.
+
+The best model was built based on the top correlation selection (select top 20 feature with strongest correlation with risk) and Random Forest Classifier (ensemble results from 3000 estimators predicted based on bootstrap sampling of observations and subsampling of features) with an accuracy of 0.78 and roc-auc of 0.80. The obtained accuracy is 16% better than baseline (choose the most frequent class), demonstrating a good performance on prediction of Disease-associated risk.
+
+The prediction result could be an additional support for doctors’ diagnose. In the future, we have confidence to achieve a better performance if we can collect more patience data. The more data (both examples and useful features) will help to find similarities and differences within and between classes.  It will be great if you can provide us more data to improve the model.  We are looking forwards to more opportunities to collaborate with you!
+
+ 
+
 
