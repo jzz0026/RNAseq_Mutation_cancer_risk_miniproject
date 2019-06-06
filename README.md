@@ -129,3 +129,10 @@ The features with top 20 of both highest and lowest correlations against risk (0
 
 ### Evaluation
 
+<div align="center">
+  Figure 7. ROC curves for different built models
+</div>
+<p align="center">
+   <img src="Plot/Evaluation.png" alt="alternate text" width="500"> 
+</p>
+<br />
