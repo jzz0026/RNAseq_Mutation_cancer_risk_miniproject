@@ -129,6 +129,10 @@ The features with top 20 of both highest and lowest correlations against risk (0
 
 ### Evaluation
 
+   |model|Random forest|LSTM|Logistic regresssion|SVM linear kernel|Gradient boosting|Baseline(choose the most frequent class)|
+   |---|---|---|---|---|---|---|
+   |Accuracy|0.88|0.83|0.78|0.78|0.74|0.65|
+
 <div align="center">
   Figure 7. ROC curves for different built models
 </div>
