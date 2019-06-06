@@ -27,6 +27,10 @@ It is the mission of Convergent Genomics to bring clear and actionable insight t
 1. remove features with full of nan data.
 2. remove outliers from observations (e.g. overexpressing) that could greatly affect model performance. Isolation Forest was appied to drop outliers since it was based on randomn forest and can handle large, high-dimensional datasets. PCA was then used for visualization of this filtering step.
 
+<p align="center">
+   <img src="https://cdn-images-1.medium.com/max/800/1*5TLIbEb96Wl8-b8AvByRww.jpeg" alt="alternate text" width="800">
+</p>
+
 <div align="center">
   Figure 1. PCA visualization of mRNA expression before and after removing outlier using Isolation Forest
 </div>
