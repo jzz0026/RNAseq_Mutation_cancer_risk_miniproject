@@ -27,6 +27,8 @@ As we known, a clinician uses a combination of **cancer stage, grade**, **overal
 
 <div align="center">
   Correlation matrix ofcancer stage, grade, overall survival and vital status
+</div>
+
 <p align="center">
    <img src="Plot/corr_stag_grade_vital_survival.png" alt="alternate text" width="1500"> 
 </p>
