@@ -25,7 +25,7 @@ It is the mission of Convergent Genomics to bring clear and actionable insight t
 
 ### RNA-Seq data
 1. remove features with full of nan data.
-2. remove outliers from observations (e.g. overexpressing) that could greatly affect model performance. Isolation Forest was appied to drop outliers since it was based on randomn forest and can handle large, high-dimensional datasets. PCA was then used for visualization of this filtering step.
+2. remove outliers from observations (e.g. overexpressing) that could greatly affect model performance. Isolation Forest was appied to drop outliers since it was based on randomn forest and can handle large, high-dimensional datasets. PCA was then used for visualization of this filtering step. About 10.11% observations were filtered and PCA showed a more acceptable variance than before filtering (Figure 1).
 
 <p align="center">
    <img src="https://cdn-images-1.medium.com/max/800/1*5TLIbEb96Wl8-b8AvByRww.jpeg" alt="alternate text" width="400">
@@ -37,6 +37,8 @@ It is the mission of Convergent Genomics to bring clear and actionable insight t
 <p align="center">
    <img src="Plot/pca_isolationForest.png" alt="alternate text" width="1500"> 
 </p>
+
+3. check whether there is any pattern existed in mRNA expression in order to remove redundant genes. However, no any obvious pattern was observed (Figur 2).
 
 ## Unsupervised clustering for categories of risks
 
