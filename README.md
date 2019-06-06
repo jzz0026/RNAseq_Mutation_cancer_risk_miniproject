@@ -19,6 +19,14 @@ It is the mission of Convergent Genomics to bring clear and actionable insight t
 
 ## Clean data and deal with missing data
 ### Clinical data
+1. Convert some features with two categories to binary (e.g. Profiled in Mutations, Patient's Vital Status, Informed consent verified)
+2. Remove data with nan in Grade and Vital Status, since they are key feature to build risk as label
+3. Convert cancer stage and grade (categeories) into integers indcating danger level, from 0 to 4, avoiding to generate too many dimensions and making data too sparse.
+
+### RNA-Seq data
+1. remove features with full of nan data.
+2. remove outliers from observations (e.g. overexpressing) that could greatly affect model performance. Isolation Forest was appied to drop outliers since it was based on randomn forest and can handle large, high-dimensional datasets. PCA was then used for visualization of this filtering step.
+
 
 ## Unsupervised clustering for categories of risks
 
