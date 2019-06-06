@@ -24,8 +24,8 @@ It is the mission of Convergent Genomics to bring clear and actionable insight t
 3. Convert cancer stage and grade (categeories) into integers indcating danger level, from 0 to 4, avoiding to generate too many dimensions and making data too sparse.
 
 ### RNA-Seq data
-1. remove features with full of nan data.
-2. remove outliers from observations (e.g. overexpressing) that could greatly affect model performance. Isolation Forest was appied to drop outliers since it was based on randomn forest and can handle large, high-dimensional datasets. PCA was then used for visualization of this filtering step. About 10.11% observations were filtered and PCA showed a more acceptable variance than before filtering (Figure 1).
+1. Remove features with full of nan data.
+2. Remove **outliers** from observations (e.g. overexpressing) that could greatly affect model performance. **Isolation Forest** was appied to drop outliers since it was based on randomn forest and can handle large, high-dimensional datasets. **PCA** was then used for visualization of this filtering step. About 10.11% observations were filtered and PCA showed a more acceptable variance than before filtering (Figure 1).
 
 <p align="center">
    <img src="https://cdn-images-1.medium.com/max/800/1*5TLIbEb96Wl8-b8AvByRww.jpeg" alt="alternate text" width="400">
@@ -38,7 +38,7 @@ It is the mission of Convergent Genomics to bring clear and actionable insight t
    <img src="Plot/pca_isolationForest.png" alt="alternate text" width="1500"> 
 </p>
 
-3. check whether there is any pattern existed in mRNA expression in order to remove redundant genes. However, no any obvious pattern was observed (Figur 2).
+3. Check whether there is any pattern existed in mRNA expression in order to remove redundant genes. However, no any obvious pattern was observed (Figur 2).
 <div align="center">
   Figure 2. Heatmap of mRNA expression
 </div>
@@ -47,8 +47,8 @@ It is the mission of Convergent Genomics to bring clear and actionable insight t
 </p>
 
 ### Mutation data
-1. remove features with full of nan data.
-2. convert mutation annotation (categories) into penalty score based on the BLOSUM62 matrix (Figure 3), avoiding to too many dimensions and making data too sparse. Mutations causing stop codon and splicing were set as -20 and -10, respectively.
+1. Remove features with full of nan data.
+2. Convert mutation annotation (categories) into **penalty score** based on the **BLOSUM62** matrix (Figure 3), avoiding to too many dimensions and making data too sparse. Mutations causing stop codon and splicing were set as -20 and -10, respectively.
 <div align="center">
   Figure 3. the BLOSUM62 matrix
 </div>
