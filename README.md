@@ -19,14 +19,17 @@ It is the mission of Convergent Genomics to bring clear and actionable insight t
 
 ## Unsupervised clustering for categories of risks
 
-As we known, a clinician uses a combination of **cancer stage, grade**, **overall survival in months following diagnosis**, and **vital status (alive/dead)** to establish risk. Since this risk was not provided, we should also look into these features and try to build risk as the label for modeling. Intuitively, both doctor and patients care about length of the remaining life most, so **overall survival in months** should be the most **indicative** to build risk desipte **68% of individuals are still alive** and could cause bias if only using overall survival as risk. Cancer stage and grade are also very meaningful to represent danger and risk, but could be incomplete and cause misleading if used alone. Many individuals could have a high cancer grade but low stage and live fairly long after diagnosis, vice versa.
+As we known, a clinician uses a combination of **cancer stage, grade**, **overall survival in months following diagnosis**, and **vital status (alive/dead)** to establish risk. Since this risk was not provided, we should also look into these features and try to build risk as the label for modeling. Intuitively, both doctor and patients care about length of the remaining life most, so **overall survival in months** should be the most **indicative** to build risk desipte **68% of individuals are still alive** and could cause bias if only using overall survival as risk. Cancer stage and grade are also very meaningful to represent danger and risk, but could be incomplete and cause misleading if used alone. Many individuals could have a high cancer grade but low stage and live fairly long after diagnosis, vice versa (Fig 1).
 
+<div align="center">
+  Figure 1. Boxplot of cancer stage, grade and vital status against overall survival 
+</div>
 <p align="center">
    <img src="Plot/plot_stag_grade_vital_survival.png" alt="alternate text" width="1500"> 
 </p>
 
 <div align="center">
-  Correlation matrix ofcancer stage, grade, overall survival and vital status
+  Table 1. Correlation matrix ofcancer stage, grade, overall survival and vital status
 </div>
 
 <p align="center">
@@ -34,12 +37,14 @@ As we known, a clinician uses a combination of **cancer stage, grade**, **overal
 </p>
 <br /> 
  
-No significantly strong corralation (spearman) of overall survival in months was observed against cancer stage and grade (converted to danger level, 0 to 4), which reflected a high variance in clinical population. So here we try to use Unsupervised clustering, Kmeans and Expectation Maximization (EM), to combine these four features together. 
+No significantly strong corralation (spearman) of overall survival in months was observed against cancer stage and grade (converted to danger level, 0 to 4), which reflected a high variance in clinical population (Table 1). Stage and grade have the highest correlation about 0.44 but not strong. Here we try to use Unsupervised clustering, Kmeans and Expectation Maximization (EM), to combine these four features together in order to observations with similiar conditions of these four feature. 
 <br />
-
+<div align="center">
+  Figure 1. Boxplot of cancer stage, grade and overall survival in each class
+</div>
 <p align="center">
    <img src="Plot/plot_stag_grade_vital_survival_in_class.png" alt="alternate text" width="1500"> 
 </p>
 <br />
 
-Kmeans with 2 components was fina
+EM algorithm is an iterative method to fit Gaussian mixture models for each clusters based on an optiaml co-variance matrix. The optiaml co-variance matrix can automatically give different weight for each features. However, Kmeans can also manually set weight through proportionally enlarging values in each feature. However, here we assume **each of four features was equally to indicat risk** due to limited domain knowledge. **Kmeans with 2 components** was finally appied for clustering, leading to **two clusters** of high and low risk (187 and 340 observations, respectively, Figure 2). 3 components were also tried but result in a pretty bad prediction performance after modeling, which was probablly caused by high variance in human and limited sample size. So I decided to use 2 components to achieve a larger degree of freedom. 
