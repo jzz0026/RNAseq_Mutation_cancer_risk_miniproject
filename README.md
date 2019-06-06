@@ -125,7 +125,7 @@ PCA was appied to reduce features. The PC1 had 98.4% variance explained but no o
 <br />
 
 #### Select features with strong Correlations
-The features with top 20 of both highest and lowest correlations against risk (0/1) were selected for modeling. Correlation was used since I started with three categories clustered as risk (high, medium, low). But right now we have only two classes (high and low), so that hypothesis testing could also be applied.
+The features with top 20 of both highest and lowest correlations against risk (0/1) were selected for modeling. Correlation was used since I started with three categories clustered as risk (high, medium, low). But right now we have only two classes (high and low), so that hypothesis testing could also be more suitable to apply.
 
 ### 3.3 Evaluation
 As I expected, PCA dimensionality reduction didn't work well. All algorithms applied to top 10 components only generate models with low accuracies close to baseline (only choose the most frequent class, Table 3). The best model was built based on the top correlation selection and Random Forest Classifier with an accuracy of 0.78 and roc-auc of 0.80 (Table 3). The obtained accuracy is 16% better than baseline, demonstrating a good performance.
