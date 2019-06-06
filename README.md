@@ -103,4 +103,13 @@ Three types of data were merged in order to predict risk using more data, result
 Based on rule of thumb, we should have at least 10 times bigger number of observations than number of features (n >= 10p). So we faced a problem of high dimensionalities, which could lead to high variance in modeling. Considering human clinical data always have an higher variance than the usual, the situation could be even worse and we probably need to select features to reduce dimensionalities and variance.
 
 ### Feature selection
+## L1 normalization to select features
+
+<div align="center">
+  Figure 5. Differenct C against accuracy using Logistic regression of L1 normalization
+</div>
+<p align="center">
+   <img src="Plot/L1_select.png" alt="alternate text" width="1500"> 
+</p>
+<br />
 
