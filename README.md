@@ -135,7 +135,7 @@ The features with top 20 of both highest and lowest correlations against risk (0
 
    |model|Accuracy|F1 score|ROC-AUC score|
    |---|---|---|---|
-   |Baseline(choose the most frequent class)|0.62|0.55|xx|
+   |Baseline(choose the most frequent class)|0.62|0.55| |
    |No feature selection + Naive bayes classifier (Bernoulli)|0.62|0.64|0.75|  
    |No feature selection + Random Forest Classifier|0.72|0.54|0.79|
    |L1 norm + Random Forest Classifier|0.73|0.58|0.77|
