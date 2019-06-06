@@ -128,6 +128,8 @@ PCA was appied to reduce features. The PC1 had 98.4% variance explained but no o
 The features with top 20 of both highest and lowest correlations against risk (0/1) were selected for modeling. Correlation was used since I started with three categories clustered as risk (high, medium, low). But right now we have only two classes, so that hypothesis testing could also be applied.
 
 ### Evaluation
+As I expected, PCA dimensionality reduction didn't work well. All algorithms applied to top 10 components only generate models with low accuracies close to baseline (only choose the most frequent class, Table 3). The best model was built based on the top correlation selection and Random Forest Classifier with an accuracy of 0.78 and roc-auc of 0.80 (Table 3). The obtained accuracy is 16% better than baseline, demonstrating a good performance.
+
 
 <div align="center">
   Table 3. Accuracy, F1 and ROC-AUC score of test set
@@ -136,7 +138,7 @@ The features with top 20 of both highest and lowest correlations against risk (0
    |model|Accuracy|F1 score|ROC-AUC score|
    |---|---|---|---|
    |Baseline(choose the most frequent class)|0.62|0.55| |
-   |No feature selection + Naive bayes classifier (Bernoulli)|0.62|0.64|0.75|  
+   |No feature selection + Naive bayes classifier (Bernoulli)|0.72|0.64|0.75|  
    |No feature selection + Random Forest Classifier|0.72|0.54|0.79|
    |L1 norm + Random Forest Classifier|0.73|0.58|0.77|
    |L1 norm + Neural network|0.74|0.61|0.73|
@@ -144,6 +146,7 @@ The features with top 20 of both highest and lowest correlations against risk (0
    |Top correlation + Gradiant boosting |0.72|0.63|0.76|
    |Top correlation + Neural network|0.66|0.58|0.72|
    |Top correlation + Random Forest Classifier|0.78|0.68|0.80|
+
 
 
 <div align="center">
