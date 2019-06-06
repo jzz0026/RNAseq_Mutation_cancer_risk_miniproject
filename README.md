@@ -96,3 +96,10 @@ EM algorithm is an iterative method to fit Gaussian mixture models for each clus
 <br /> 
 
 Both Figure 4 and Table 2 showed that 2 risk level gave a **good balance** on four features. The high risk tended to have higher danger level of stage and grade, live shorter after diagnosis and contain more individuals that was already dead than the low risk. 
+
+## Modeling for prediction of risk
+### Merge clinical, RNAseq and mutation data
+Three types of data were merged in order to predict risk using more data, resulting in total 432 observations (n) and 134 features (p). Based on rule of thumb, we should have at least 10 times bigger number of observations than number of features (n >= 10p). So we faced a problem of high dimensionalities, which could lead to high variance in modeling. Considering human clinical data always have an higher variance than the usual, the situation could be even worse and we probably need to select features to reduce dimensionalities and variance.
+
+### Feature selection
+
