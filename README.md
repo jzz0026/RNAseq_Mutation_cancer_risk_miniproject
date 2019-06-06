@@ -35,3 +35,5 @@ No significantly strong corralation (spearman) of overall survival in months was
 <p align="center">
    <img src="Plot/plot_stag_grade_vital_survival_in_class.png" alt="alternate text" width="1500"> 
 </p>
+
+Kmeans with 2 components was fina
