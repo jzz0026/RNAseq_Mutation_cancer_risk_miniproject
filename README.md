@@ -25,5 +25,5 @@ As we known, a clinician uses a combination of **cancer stage, grade**, **overal
    <img src="Plot/plot_stag_grade_vital_survival.png" alt="alternate text" width="1500"> 
 </p>
 
-
+No significantly strong corralation of overall survival in months was observed against cancer stage and grade (converted to danger level, 0 to 4), which reflected a high variance in clinical population. 
 
