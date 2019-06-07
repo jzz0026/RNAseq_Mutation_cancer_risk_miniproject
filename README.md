@@ -85,7 +85,7 @@ No significantly strong correlation (spearman) of overall survival in months was
 </p>
 <br />
 
-EM algorithm is an iterative method to fit Gaussian mixture models for each clusters based on an optimal co-variance matrix. The optimal co-variance matrix can automatically give different weight for each feature. However, Kmeans can also manually set weight through proportionally enlarging values in each feature. However, here we assume **each of four features was equally to indicate risk** due to limited domain knowledge. **Kmeans with 2 components** was finally appied for clustering, leading to **two clusters** of high and low risk (187 and 340 observations, respectively, Figure 4). 3 components were also tried but result in a pretty bad prediction performance after modeling, which was probably caused by high variance in human and limited sample size. So I decided to use 2 components to achieve a larger degree of freedom. 
+EM algorithm is an iterative method to fit Gaussian mixture models for each clusters based on an optimal co-variance matrix. The optimal co-variance matrix can automatically give different weight for each feature. However, Kmeans can also manually set weight through proportionally enlarging values in each feature. However, here we assume **each of four features was equally to indicate risk** due to limited domain knowledge. **Kmeans with 2 components** was finally applied for clustering, leading to **two clusters** of high and low risk (187 and 340 observations, respectively, Figure 4). 3 components were also tried but result in a pretty bad prediction performance after modeling, which was probably caused by high variance in human and limited sample size. So I decided to use 2 components to achieve a larger degree of freedom. 
 
 <div align="center">
   Table 2. Mean danger level of cancer stage, grade, overall survival and vital status
@@ -128,16 +128,16 @@ PCA was applied to reduce features. The PC1 had 98.4% variance explained but no 
 The features with top 20 of both highest and lowest correlations against risk (0/1) were selected for modeling. Correlation was used since I started with three categories clustered as risk (high, medium, low). But right now we have only two classes (high and low), so that hypothesis testing could also be more suitable to apply.
 
 ### 3.3 Evaluation
-As I expected, PCA dimensionality reduction didn't work well. All algorithms applied to top 10 components only generate models with low accuracies close to baseline (only choose the most frequent class, Table 3). The best model was built based on the top correlation selection and Random Forest Classifier with an accuracy of 0.78 and roc-auc of 0.80 (Table 3). The obtained accuracy is 16% better than baseline, demonstrating a good performance. Naive bayes classifier and Random Forest Classifier also have an acceptable performance without feature selection. The two algorithms were known to perform well in high dimensionality. Expecially for Random Forest, it has the step of bootstrapping sampling and subsampling features, which greatly reduce variance when facing high dimensionality problem.
+As I expected, PCA dimensionality reduction didn't work well. All algorithms applied to top 10 components only generate models with low accuracies close to baseline (only choose the most frequent class, Table 3). The best model was built based on the top correlation selection and Random Forest Classifier with an accuracy of 0.78 and roc-auc of 0.80 (Table 3). The obtained accuracy is 16% better than baseline, demonstrating a good performance. Naive bayes classifier and Random Forest Classifier also have an acceptable performance without feature selection. The two algorithms were known to perform well in high dimensionality. Especially for Random Forest, it has the step of bootstrapping sampling and subsampling features, which greatly reduce variance when facing high dimensionality problem.
 
 
 <div align="center">
   Table 3. Accuracy, F1 and ROC-AUC score of test set
 </div>
 
-   |model|Accuracy|F1 score|ROC-AUC score|
+   |Model|Accuracy|F1 score|ROC-AUC score|
    |---|---|---|---|
-   |Baseline(choose the most frequent class)|0.62|0.55| |
+   |Baseline (choose the most frequent class)|0.62|0.55| |
    |No feature selection + Naive bayes classifier (Bernoulli)|0.72|0.64|0.75|  
    |No feature selection + Random Forest Classifier|0.72|0.54|0.79|
    |L1 norm + Random Forest Classifier|0.73|0.58|0.77|
@@ -156,4 +156,3 @@ Figure 7 showed ROC curves from top models using different approaches of feature
    <img src="Plot/Evaluation.png" alt="alternate text" width="500"> 
 </p>
 <br />
-
